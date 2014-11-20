@@ -17,8 +17,8 @@ module Jekyll
       ".html"
     end
 
-    def convert(content)
-      ::Haml::Engine.new(content).render
+    def convert(content, info = nil, payload = nil)
+      ::Haml::Engine.new(content).render(Object.new, {info: info, payload: payload, site: payload['site']})
     end
   end
 end
