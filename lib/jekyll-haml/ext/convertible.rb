@@ -4,7 +4,7 @@
 
 module Jekyll
   class Layout
-    def initialize(site, base, name)
+    def initialize(site, base, name, payload = nil)
       @site = site
       @base = base
       @name = name
@@ -13,7 +13,7 @@ module Jekyll
 
       self.process(name)
       self.read_yaml(base, name)
-      self.content = self.transform
+      self.content = self.transform(payload)
     end
   end
 end
